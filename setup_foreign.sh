@@ -154,6 +154,8 @@ ufw allow 443/tcp
 ufw allow 8442/tcp
 ufw allow 8443/tcp
 ufw allow 10443/tcp
+ufw allow 8080/tcp
+ufw allow 8080/udp
 
 ufw --force enable
 log "UFW настроен и включён"
