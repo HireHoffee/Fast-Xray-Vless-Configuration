@@ -151,6 +151,7 @@ ufw allow OpenSSH
 ufw allow "${SSH_PORT}/tcp"
 ufw allow 80/tcp
 ufw allow 443/tcp
+ufw allow 443/udp
 ufw allow 8442/tcp
 ufw allow 8443/tcp
 ufw allow 10443/tcp
