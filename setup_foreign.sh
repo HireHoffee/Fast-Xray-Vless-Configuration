@@ -9,7 +9,7 @@
 #     --user-pass пароль_юзера \
 #     --root-pass пароль_рута     (если не задан — генерируется автоматически) \
 #     --ssh-port  порт_ssh        (из диапазона 10001-65535) \
-#     --vpn-script URL_скрипта   (по умолчанию: autoXRAY1.sh из репозитория)
+#     --vpn-script URL_скрипта   (по умолчанию: autoXRAY2.sh из репозитория)
 #
 # Скрипт должен запускаться от root на чистом Debian 12 / Ubuntu 24
 # =============================================================================
@@ -31,7 +31,7 @@ NEW_USER=""
 USER_PASS=""
 ROOT_PASS=""
 SSH_PORT=""
-VPN_SCRIPT_URL="https://raw.githubusercontent.com/xVRVx/autoXRAY/main/autoXRAY1.sh"
+VPN_SCRIPT_URL="https://raw.githubusercontent.com/xVRVx/autoXRAY/main/autoXRAY2.sh"
 
 # ─── Парсинг аргументов ──────────────────────────────────────────────────────
 while [[ $# -gt 0 ]]; do
