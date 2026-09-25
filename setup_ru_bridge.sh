@@ -10,7 +10,7 @@
 #     --user-pass   пароль_юзера \
 #     --root-pass   пароль_рута           (если не задан — генерируется автоматически) \
 #     --ssh-port    порт_ssh              (из диапазона 10001-65535) \
-#     --bridge-script URL_скрипта        (по умолчанию: autoXRAYselfRUbrEUxhttp.sh)
+#     --bridge-script URL_скрипта        (по умолчанию: bridgeTLSxhttp.sh)
 #
 # Скрипт должен запускаться от root на чистом Debian 12 / Ubuntu 24
 # =============================================================================
@@ -33,7 +33,7 @@ NEW_USER=""
 USER_PASS=""
 ROOT_PASS=""
 SSH_PORT=""
-BRIDGE_SCRIPT_URL="https://raw.githubusercontent.com/xVRVx/autoXRAY/main/autoXRAYselfRUbrEUxhttp.sh"
+BRIDGE_SCRIPT_URL="https://raw.githubusercontent.com/xVRVx/autoXRAY/main/bridgeTLSxhttp.sh"
 
 # ─── Парсинг аргументов ──────────────────────────────────────────────────────
 while [[ $# -gt 0 ]]; do
