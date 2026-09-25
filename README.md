@@ -175,7 +175,7 @@ Default: deny (incoming), allow (outgoing)
 
 Возвращаемся в консоль к нашему серверу, если выходили с сервера, при входе перейдите к **root** пользователю командой `su –`. Копируем или вводим bash-скрипт в консоль для автоматической установки и настройки сервера VPN на базе Xray (VLESS Reality / XHTTP / Shadowsocks 2022) с nginx и HTTPS (Let’s Encrypt) под указанный домен (также нужно сказать, что нельзя без проверки выполнять всякие скрипты из интернета, поэтому нужно проверять скрипты перед выполнением, но, так как мы тут дилетанты, продолжим как есть). Для удобства можете скопировать команду и отредактировать её в текстовом редакторе:
 
-`bash -c "$(curl -L https://raw.githubusercontent.com/xVRVx/autoXRAY/main/autoXRAY1.sh)" -- ваш_домен`
+`bash -c "$(curl -L https://raw.githubusercontent.com/xVRVx/autoXRAY/main/autoXRAY2.sh)" -- ваш_домен`
 
 где `ваш_домен` — это домен, скопированный с прошлого шага.
 
@@ -222,7 +222,7 @@ Default: deny (incoming), allow (outgoing)
 
 После всей подготовки нужно прописать следующую команду в консоль на новом сервере:
 
-`bash -c "$(curl -L https://raw.githubusercontent.com/xVRVx/autoXRAY/main/autoXRAYselfRUbrEUxhttp.sh)" -- ваш_новый_домен "ваш_сгенерированный_конфигXHTTP"`
+`bash -c "$(curl -L https://raw.githubusercontent.com/xVRVx/autoXRAY/main/bridgeTLSxhttp.sh)" -- ваш_новый_домен "ваш_сгенерированный_конфигXHTTP"`
 
 где `ваш_новый_домен` — это только что созданный домен и `ваш_сгенерированный_конфигXHTTP` это конфиг **vless XHTTP reality EXTRA** (вставляем конфиг внутрь кавычек).
 
