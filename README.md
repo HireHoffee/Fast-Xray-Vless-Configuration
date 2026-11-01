@@ -375,6 +375,50 @@ password root - myRootPass
 
 Сохраните этот вывод в надёжном месте.
 
+## Hysteria2 на отдельном сервере (дополнительно)
+
+Скрипт `setup_hysteria2.sh` ставит на отдельный сервер только [Hysteria2](https://v2.hysteria.network/) — протокол поверх QUIC (UDP). Он выполняет ту же базовую настройку сервера (пароли, пользователь, SSH, fail2ban, firewall), выпускает сертификат Let's Encrypt и поднимает сайт-заглушку (случайно выбирается один из 5 вариантов).
+
+> [!NOTE]
+> Скрипт `setup_foreign.sh` уже включает Hysteria2 (443/udp) вместе с VLESS. `setup_hysteria2.sh` нужен только если вы хотите отдельный сервер исключительно под Hysteria2 — ставить его поверх `setup_foreign.sh` не нужно.
+
+```bash
+nano /root/setup_hysteria2.sh
+# вставьте содержимое файла, Ctrl+O → Enter → Ctrl+X
+
+bash /root/setup_hysteria2.sh \
+  --domain    myvpn.mooo.com \
+  --email     your@gmail.com \
+  --user      myuser \
+  --user-pass myUserPass \
+  --root-pass myRootPass \
+  --ssh-port  13456
+```
+
+Аргументы:
+
+| Аргумент      | Описание                                                          |
+| ------------- | ----------------------------------------------------------------- |
+| `--domain`    | Домен, привязанный к IP этого сервера                             |
+| `--email`     | Email для сертификата Let's Encrypt                               |
+| `--user`      | Имя нового пользователя                                           |
+| `--user-pass` | Пароль нового пользователя                                        |
+| `--root-pass` | Новый пароль root (если не указать — сгенерируется автоматически) |
+| `--ssh-port`  | Новый порт SSH (диапазон 1024–65535)                              |
+| `--vpn-user`  | Логин для VPN (необязательно, по умолчанию `Admin`)               |
+| `--vpn-pass`  | Пароль для VPN (необязательно, сгенерируется автоматически)       |
+
+По окончании скрипт выведет данные сервера и готовую ссылку `hy2://...` — добавьте её в клиент через «Вставить из буфера обмена».
+
+Клиенты: iOS — Clash Mi, Android — FLClashX или Clash Meta for Android, Windows — Koala Clash.
+
+Если сертификат не выпустился сразу, подождите 1–2 минуты и проверьте:
+
+```bash
+systemctl status hysteria-server.service
+journalctl -u hysteria-server.service -n 50
+```
+
 ## TrustTunnel (дополнительно)
 
 [TrustTunnel](https://github.com/TrustTunnel/TrustTunnel) — открытый VPN-протокол от команды AdGuard, трафик которого маскируется под обычный HTTPS (HTTP/1.1, HTTP/2 или QUIC). Скрипт `setup_trusttunnel.sh` ставит его либо на отдельный сервер, либо рядом с уже настроенным Xray/Hysteria2.
