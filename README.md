@@ -127,6 +127,7 @@ findtime = 10m
 ufw allow OpenSSH
 ufw allow 80
 ufw allow 443
+ufw allow 8080
 ufw allow 8442
 ufw allow 8443
 ufw allow 10443
